@@ -1,0 +1,201 @@
+C R U D
+Get = Read
+Post = Create
+Put(new) / Patch(repair) = Update
+Delete = Delete
+
+
+
+- Robo 3T
+https://studio3t.com/
+download n install n connect
+mongod
+> show dbs
+
+- Robo 3T
+localhost:27017
+  - add databases
+  - create wikiDB
+    *Collections
+    - add collections
+    - articles
+      - Open Collenction Ttab
+         - 在articles的中间add documents
+{
+    title: 'REST',
+    content: 'REST is short for REpresentational State Transfer. It an architecthral style for designing APIs.'
+}
+**************************************
+mkidr wiki-api
+npm init -y
+npm i body-parser mongoose ejs express
+touch app.js
+nodemon app.js
+
+
+
+// 366
+- Read
+<ModelName>.find({conditions}, function(err, results){
+  //use the found results docs.
+});
+
+
+
+// 367
+- Post
+app.post(route, function(req, res){
+});
+
+- Postman
+Get change to Post - localhost:3000/articles
+- click Body
+- click x-www-form-urlencoded
+  KEY
+    - title
+    - content
+
+- Create
+const <constantName> = new <ModelName> ({
+	<fieldName> : <fieldData>,
+	...
+});
+<constantName>.save();
+
+
+
+// 368
+- Delete
+app.delete(route, function(req, res){
+});
+
+
+- Delete
+<ModelName>.deleteMany(
+	{conditions},
+	function(err){
+	}
+);
+
+- Postman
+Post change to Get - localhost:3000/articles
+- click Body
+Get change to Delete
+check Body and Robo 3T, all detail deleted.
+
+
+
+// 370
+- Get
+app.get(route, function(req, res){
+})
+
+- Get
+app.route('route')
+.get(function(req, res){
+})
+
+- Read
+<ModelName>.findOne(
+	{conditions},
+	function(err, result){
+	//use the found result.
+	}
+);
+
+- Robo 3T
+localhost:27017
+  - add databases
+  - create wikiDB
+    *Collections
+    - add collections
+    - articles
+      - Open Collenction Ttab
+	- 在articles的中间add documents
+{
+    "_id" : "5c18f35cde40ab6cc551cd60",
+    "title" : "Jack Bauer",
+    "content" : "Jack Bauer once stepped into quicksand. The quicksand couldn't escape and nearly drowned.",
+    "__v" : 0
+}
+
+- Postman
+Post change to Get - localhost:3000/articles
+- click Body
+
+
+
+// 371
+- Post
+app.put(route, function(req, res){
+})
+
+- Update
+<ModelName>.update(
+	{conditions},
+	{updates},
+	{overwrite: true}
+	function(err, results){}
+	);
+
+- Postman
+Get change to Put - localhost:3000/articles/Jack%20Bauer
+- click Body
+
+
+
+// 372
+- Patch
+app.patch(route, function(req, res){
+})
+
+- Update
+<ModelName>.update(
+	{conditions},
+	{$set: updates},
+	function(err, results){}
+	);
+
+- Postman
+Put change to Patch - localhost:3000/articles/Jack%20Bauer
+- click Body
+
+
+
+// 373
+- Delete
+app.delete(route, function(req, res){
+})
+
+- Delete
+<ModelName>.deleteOne(
+	{conditions},
+	function(err){}
+	);
+
+- Postman
+Patch change to Delete - localhost:3000/articles/Jack%20Bauer
+- click Body
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
